@@ -23,18 +23,13 @@ public class LoginServlet extends HttpServlet {
                 if (!listNameAndPassCustomer.next()) break;
                 if (userName.equals(listNameAndPassCustomer.getString(1)) && password.equals(listNameAndPassCustomer.getString(2))){
                     request.getRequestDispatcher("index.jsp").forward(request, response);
-                }else {
-
-                    request.getRequestDispatcher("login.jsp").forward(request,response);
                 }
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
-
         }
-
+        request.getRequestDispatcher("jsp/login.jsp").forward(request,response);
     }
-
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

@@ -22,23 +22,16 @@ public class RegisterServlet extends HttpServlet {
         String email = request.getParameter("email");
         String address = request.getParameter("address");
         DBCustomer dbCustomer = new DBCustomer();
-        Customer customer = new Customer(1, userName, password, phoneNumber, email, address);
+        Customer customer = new Customer(userName, password, phoneNumber, email, address);
         boolean isOk = dbCustomer.saveDataCustomer(customer);
         if (isOk) {
             request.getRequestDispatcher("index.jsp").forward(request, response);
         } else {
-            request.getRequestDispatcher("register.jsp").forward(request, response);
+            request.getRequestDispatcher("jsp/register.jsp").forward(request, response);
         }
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //tra ve trang khac neu dung nguoc lại trải lai tràn cu
-        boolean isOk = (boolean) request.getAttribute("isOk");
-        if (isOk) {
-            request.getRequestDispatcher("index.jsp").forward(request, response);
-        } else {
-            request.getRequestDispatcher("register.jsp").forward(request, response);
-        }
+
     }
 }

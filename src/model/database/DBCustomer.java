@@ -16,11 +16,11 @@ public class DBCustomer {
     }
 
     public ResultSet getNameAndPasswordListCustomer() {
-        return dal.getData("select customerName, customerPassword from customer;");
+        return dal.getData("select customerName, customerPass from customer;");
     }
 
     public boolean saveDataCustomer(Customer customer) {
-        return dal.updateData("insert into customer(customerName,customerPassword,customerPhoneNumber,customerEmail, customerAddress )" +
+        return dal.updateData("insert into customer() " +
                 "values('" + customer.getCustomerName() + "', '" + customer.getCustomerPassword() + "', '" + customer.getCustomerPhoneNumber() + "',' " + customer.getCustomerEmail() + "' , '" + customer.getCustomerAddress() + "');");
     }
 }

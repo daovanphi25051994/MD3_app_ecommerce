@@ -1,7 +1,6 @@
 package model.customer;
 
 public class Customer {
-    private int customerID;
     private String customerName;
     private String customerPassword;
     private String customerPhoneNumber;
@@ -9,8 +8,7 @@ public class Customer {
     private String customerAddress;
 
 
-    public Customer(int id, String name, String password, String phoneNumber, String email, String address) {
-        this.customerID = id;
+    public Customer(String name, String password, String phoneNumber, String email, String address) {
         this.customerName = name;
         this.customerPassword = password;
         this.customerPhoneNumber = phoneNumber;
@@ -18,9 +16,6 @@ public class Customer {
         this.customerAddress = address;
     }
 
-    public int getCustomerID() {
-        return customerID;
-    }
 
     public String getCustomerName() {
         return customerName;
@@ -42,10 +37,6 @@ public class Customer {
         return customerAddress;
     }
 
-
-    public void setCustomerID(int customerID) {
-        this.customerID = customerID;
-    }
 
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
@@ -69,8 +60,7 @@ public class Customer {
 
 
     public String toString() {
-        return "id : " + this.customerID
-                + " ; name : " + this.customerName
+        return "name : " + this.customerName
                 + " ; password : " + this.customerPassword
                 + " ; phone : " + this.customerPhoneNumber
                 + " ; email : " + this.customerEmail
