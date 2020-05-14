@@ -7,6 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -24,7 +25,9 @@
         <div class="col-lg-6">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="/index.jsp">LOGO</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -41,21 +44,21 @@
         </div>
         <div class="col-lg-6">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/index.jsp">LIST ITEM <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/index.jsp">LIST CUSTOMER <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/index.jsp">LIST ORDER <span class="sr-only">(current)</span></a>
-                        </li>
-                    </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/index.jsp">LIST ITEM <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/index.jsp">LIST CUSTOMER <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/index.jsp">LIST ORDER <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
             </nav>
         </div>
     </header>
@@ -64,77 +67,25 @@
         <div class="col-xl-9 col-lg-8 col-md-7 col-sm-6 col-6 row">
             <% DBItem dbItem = new DBItem();
                 ResultSet listItem = dbItem.getListItem();%>
-            <% while (listItem.next()){%>
+            <% while (listItem.next()) {%>
             <div class="col-xl-3 col-lg-4 col-md-6 col-12">
-                <div class="card" style="width: 18rem;">
-                    <img src="../../images/<%=listItem.getString(3)%>" width="100px" height="100px" class="card-img-top" alt="">
-                    <div class="card-body">
-                        <h5 class="card-title"><%=listItem.getString(1)%></h5>
-                        <p class="card-text"><%=listItem.getString(2)%></p>
-                        <p class="card-text"><%=listItem.getString(4)%></p>
-                        <p class="card-text"><%=listItem.getString(5)%></p>
-                        <p class="card-text"><%=listItem.getString(6)%></p>
-                        <p class="card-text"><%=listItem.getString(7)%></p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                <form action="/update" method="post">
+                    <div class="card" style="width: 16rem;">
+                        <img src="../img/<%=listItem.getString(3)%>" class="card-img-top" alt="">
+                        <div class="card-body">
+                            Item ID : <input type="text" name="itemID" value="<%=listItem.getString(1)%>"  class="card-title"/>
+                            Item Name : <input type="text" name="itemName" value="<%=listItem.getString(2)%>"  class="card-title"/>
+                            Item Price : <input type="text" name="itemPrice" value="<%=listItem.getString(4)%>" class="card-title"/>
+                            Item Amount : <input type="text" name="itemAmount" value="<%=listItem.getString(5)%>"  class="card-title"/>
+                            Item Category : <input type="text" name="itemCategory" value="<%=listItem.getString(6)%>"  class="card-title"/>
+                            Item Describes : <input type="text" name="itemDescribe" value="<%=listItem.getString(7)%>"  class="card-title"/>
+                            <button type="submit" name="deleteItem" value="delete" class="btn btn-primary">Delete</button>
+                            <button type="submit" name="updateItem" value="update" class="btn btn-primary">Update</button>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
             <%}%>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-12">
-                <ul>
-                    <li>a</li>
-                    <li>a</li>
-                    <li>a</li>
-                    <li>a</li>
-                    <li>a</li>
-                    <li>a</li>
-                    <li>a</li>
-                </ul>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-12">
-                <ul>
-                    <li>a</li>
-                    <li>a</li>
-                    <li>a</li>
-                    <li>a</li>
-                    <li>a</li>
-                    <li>a</li>
-                    <li>a</li>
-                </ul>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-12">
-                <ul>
-                    <li>a</li>
-                    <li>a</li>
-                    <li>a</li>
-                    <li>a</li>
-                    <li>a</li>
-                    <li>a</li>
-                    <li>a</li>
-                </ul>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-12">
-                <ul>
-                    <li>a</li>
-                    <li>a</li>
-                    <li>a</li>
-                    <li>a</li>
-                    <li>a</li>
-                    <li>a</li>
-                    <li>a</li>
-                </ul>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-12">
-                <ul>
-                    <li>a</li>
-                    <li>a</li>
-                    <li>a</li>
-                    <li>a</li>
-                    <li>a</li>
-                    <li>a</li>
-                    <li>a</li>
-                </ul>
-            </div>
 
         </div>
         <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-6">
@@ -162,9 +113,9 @@
                 <div class="form-group">
                     <label for="item-category">Item Category</label>
                     <select name="itemCategory" id="item-category">
-                        <option value="quan ao"> quan ao</option>
-                        <option value="phu kien"> phu kien</option>
-                        <option value="nuoc hoa"> nuoc hoa</option>
+                        <option value="clothes">clothes</option>
+                        <option value="shoes">shoes</option>
+                        <option value="perfume">perfume</option>
                     </select>
                 </div>
                 <div class="form-group">
