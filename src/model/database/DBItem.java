@@ -28,4 +28,10 @@ public class DBItem {
         return dal.updateData("delete from item " +
                 "where itemId = '"+ id +"';" );
     }
+
+    public boolean updateItemByID(String id , Item item) {
+        return dal.updateData( "update item " +
+                "set itemId = '"+ item.getItemID() +"', item_name = '"+ item.getItemName() +"' , image = '"+ item.getItemImage() +"' , price = "+ item.getItemPrice() +", amount = "+ item.getItemAmount() +", catelory = '"+ item.getItemCategory() +"', describes = '"+ item.getItemDescribe() +"' " +
+                " where itemId = '"+ id +"';");
+    }
 }
