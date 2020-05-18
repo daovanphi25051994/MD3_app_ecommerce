@@ -2,7 +2,7 @@
     border-collapse: collapse;
 }
 table, tr, th, td {
-    border: #252525 solid 1px;
+    border: beige solid 1px;
 }
 
 .order-content {
