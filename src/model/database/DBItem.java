@@ -18,6 +18,9 @@ public class DBItem {
     public ResultSet getListItemID() {
         return dal.getData("select itemId from item;");
     }
+    public ResultSet getItemByID(String id){
+        return dal.getData("select * from item where itemId = '"+ id +"';");
+    }
 
     public boolean saveDataItem(Item item) {
         return dal.updateData("insert into item() " +

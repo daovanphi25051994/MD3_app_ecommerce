@@ -2,11 +2,13 @@ package controller;
 
 import model.database.DBCustomer;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,7 +24,11 @@ public class LoginServlet extends HttpServlet {
             try {
                 if (!listNameAndPassCustomer.next()) break;
                 if (userName.equals(listNameAndPassCustomer.getString(1)) && password.equals(listNameAndPassCustomer.getString(2))){
-                    request.getRequestDispatcher("index.jsp").forward(request, response);
+                   RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
+                    HttpSession session = request.getSession();
+                    session.setAttribute("userName", userName);
+                    request.setAttribute("message", "Welcome : ");
+                    requestDispatcher.forward(request, response);
                 }
             } catch (SQLException throwables) {
                 throwables.printStackTrace();

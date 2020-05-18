@@ -23,7 +23,7 @@ public class RegisterServlet extends HttpServlet {
         String address = request.getParameter("address");
         DBCustomer dbCustomer = new DBCustomer();
         Customer customer = new Customer(userName, password, phoneNumber, email, address);
-        
+
         boolean isOk = dbCustomer.saveDataCustomer(customer);
         if (isOk) {
             request.getRequestDispatcher("index.jsp").forward(request, response);

@@ -9,10 +9,13 @@
 .header h1 a {
     text-decoration: none;
 }
+
+
 .menu ul {
     padding: 0;
     list-style: none;
 }
+
 .menu {
     padding-left: 10px;
 }
@@ -26,22 +29,26 @@
     border-bottom-width: 1px;
     border-bottom-style: solid;
 }
+
 .menu ul li {
     margin: 0;
     display: inline;
     line-height: 90px;
     padding: 9px 15px;
 }
+
 .menu ul li:hover {
     border-bottom-color: red;
     border-bottom-width: 1px;
     border-bottom-style: solid;
 }
+
 .menu ul li a {
     color: black;
     font-size: 13px;
     text-decoration: none;
 }
+
 .banner {
     height: 614px;
     background-color: #eb6d6c;
@@ -53,67 +60,30 @@
     width: 75%;
     margin: 0 auto;
 }
+
 .about h2 {
     padding-top: 100px;
 }
+
 .about div {
-    height: 170px;
-    background-color: olivedrab;
+    height: 250px;
     margin-top: 50px;
 }
+
+
 .about p {
     text-align: center;
 }
-
-.content {
-    height: 1475px;
-    width: 75%;
-    margin: 0 auto;
-}
-.content .main-categories {
+.title-content{
     text-align: center;
 }
-.content .main-categories ul {
-    list-style: none;
-    margin: 0px;
-    padding: 0px;
-}
-.content .main-categories ul li {
-    float: left;
-    display: inline;
-    width: 340px;
-    height: 270px;
-    background-color: #eb6d6c;
-    margin-right: 30px;
-    margin-top: 40px;
-}
-.content .main-categories h2 {
-    margin-top: 100px;
-}
 
-.content .new-arrival h2 {
-    text-align: center;
-    margin-top: 400px;
-}
-.content .new-arrival ul {
-    list-style: none;
-    margin: 0px;
-    padding: 0px;
-}
-.content .new-arrival ul li{
-    float: left;
-    display: inline;
-    width: 240px;
-    height: 325px;
-    background-color: #eb6d6c;
-    margin-right: 30px;
-    margin-top: 40px;
-}
 
 .contact {
     height: 495px;
     background-color: #ffffff;
 }
+
 .contact h2 {
     text-align: center;
     padding-top: 100px;
@@ -121,13 +91,16 @@
     color: #252525;
 
 }
+
 .contact .my-information {
     text-align: center;
 }
+
 .contact .customer-information {
     padding-top: 24px;
     padding-left: 26px;
 }
+
 #customer-name {
     width: 260px;
     height: 38px;
@@ -146,6 +119,7 @@
     margin-left: 27px;
 
 }
+
 #customer-email {
     width: 553px;
     height: 38px;
@@ -194,14 +168,14 @@
     line-height: 90px;
 }
 
-.footer .footer-menu ul li:hover{
+.footer .footer-menu ul li:hover {
     border-bottom-color: red;
     border-bottom-width: 1px;
     border-bottom-style: solid;
 }
 
 
-.footer .footer-menu ul li a{
+.footer .footer-menu ul li a {
     color: black;
     font-size: 13px;
     text-decoration: none;

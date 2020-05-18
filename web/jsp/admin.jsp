@@ -71,15 +71,21 @@
             <div class="col-xl-3 col-lg-4 col-md-6 col-12">
                 <form action="/update" method="post">
                     <div class="card" style="width: 16rem;">
-                        <img src="../img/<%=listItem.getString(3)%>" class="card-img-top" alt="">
+                        <img src="../img/<%=listItem.getString(3)%>" class="card-img-top" width="15rem"; height="200px" alt="">
                         <div class="card-body">
-                            <input type="file" name="itemImage" value="" class="" id="">
-                            Item ID : <input type="text" name="itemID" value="<%=listItem.getString(1)%>"  class="card-title"/>
-                            Item Name : <input type="text" name="itemName" value="<%=listItem.getString(2)%>"  class="card-title"/>
-                            Item Price : <input type="text" name="itemPrice" value="<%=listItem.getString(4)%>" class="card-title"/>
-                            Item Amount : <input type="text" name="itemAmount" value="<%=listItem.getString(5)%>"  class="card-title"/>
-                            Item Category : <input type="text" name="itemCategory" value="<%=listItem.getString(6)%>"  class="card-title"/>
-                            Item Describes : <input type="text" name="itemDescribe" value="<%=listItem.getString(7)%>"  class="card-title"/>
+                            <input type="file" name="itemImage"/>
+                            Item ID : <input type="text" name="itemID" value="<%=listItem.getString(1)%>"
+                                             class="card-title"/>
+                            Item Name : <input type="text" name="itemName" value="<%=listItem.getString(2)%>"
+                                               class="card-title"/>
+                            Item Price : <input type="text" name="itemPrice" value="<%=listItem.getString(4)%>"
+                                                class="card-title"/>
+                            Item Amount : <input type="text" name="itemAmount" value="<%=listItem.getString(5)%>"
+                                                 class="card-title"/>
+                            Item Category : <input type="text" name="itemCategory" value="<%=listItem.getString(6)%>"
+                                                   class="card-title"/>
+                            Item Describes : <input type="text" name="itemDescribe" value="<%=listItem.getString(7)%>"
+                                                    class="card-title"/>
                             <button type="submit" name="action" value="delete" class="btn btn-primary">Delete</button>
                             <button type="submit" name="action" value="update" class="btn btn-primary">Update</button>
                         </div>
@@ -101,7 +107,7 @@
                 </div>
                 <div class="form-group">
                     <label for="item-image">Item Image</label>
-                    <input type="file" name="itemImage" value="fafasf.jpg" class="form-control" id="item-image">
+                    <input type="file" name="itemImage" class="form-control" id="item-image">
                 </div>
                 <div class="form-group">
                     <label for="item-price">Item Price</label>
