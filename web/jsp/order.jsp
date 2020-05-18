@@ -17,6 +17,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home</title>
     <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/order.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -46,33 +47,65 @@
             </ul>
         </div>
     </header>
-    <h1>order</h1>
-    <table>
-        <p>${order.getOrderID()}</p>
-        <p>${order.getCustomerName()}</p>
-        <tr>
-            <th>Name</th>
-            <th>amount</th>
-            <th>price</th>
-            <th>sum</th>
-        </tr>
-        <c:forEach items="${order.getListItem()}" var="item">
-            <tr>
-                <td>${item.getItemName()}</td>
-                <td>${item.getItemAmount()}</td>
-                <td>${item.getItemPrice()}</td>
-                <td>${item.getItemAmount() * item.getItemPrice()}</td>
-            </tr>
-        </c:forEach>
+    <div class="order-content row">
+        <div class="list-item col-xl-9">
+            <table>
+                <c:forEach items="${order.getListItem()}" var="item">
+                    <tr>
+                        <td rowspan="4" colspan="1"><img src="../img/${item.getItemImage()}" alt="" width="100px" height="100px"></td>
+                        <td colspan="1"><p>Name : ${item.getItemName()}</p></td>
+                    </tr>
+                    <tr>
+                        <td><p>Price : ${item.getItemPrice()}</p></td>
+                    </tr>
+                    <tr>
+                        <td><p>Amount : ${item.getItemAmount()}</p></td>
+                    </tr>
+                    <tr>
+                        <td><a href="">xoa</a></td>
+                    </tr>
 
-        <tr>
-            <td colspan="3">Tong tien</td>
+                </c:forEach>
+            </table>
+        </div>
+        <div class="pay col-xl-3">
+
+        </div>
+        <h1>order</h1>
+        <table class="order">
+            <tr>
+                <td colspan="4"> Order ID: ${order.getOrderID()}</td>
+
+            </tr>
+            <tr>
+                <td colspan="4"> Customer: ${order.getCustomerName()}</td>
+            </tr>
+
+            <tr>
+                <th>Name</th>
+                <th>amount</th>
+                <th>price</th>
+                <th>sum</th>
+            </tr>
             <c:forEach items="${order.getListItem()}" var="item">
-                <c:set var="sum" value="${sum+ (item.getItemAmount() * item.getItemPrice()) }"/>
+                <tr>
+                    <td>${item.getItemName()}</td>
+                    <td>${item.getItemAmount()}</td>
+                    <td>${item.getItemPrice()}</td>
+                    <td>${item.getItemAmount() * item.getItemPrice()}</td>
+                </tr>
             </c:forEach>
-            <td colspan="1"><c:out value="${sum}"/></td>
-        </tr>
-    </table>
+
+            <tr>
+                <td colspan="3">Tong tien</td>
+                <c:forEach items="${order.getListItem()}" var="item">
+                    <c:set var="sum" value="${sum+ (item.getItemAmount() * item.getItemPrice()) }"/>
+                </c:forEach>
+                <td colspan="1"><c:out value="${sum}"/></td>
+            </tr>
+        </table>
+
+    </div>
 
 
     <hr>
